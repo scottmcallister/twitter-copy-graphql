@@ -1,9 +1,8 @@
 package com.example.graphqlservice.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.example.graphqlservice.scalar.GraphQLDateType;
+
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -15,12 +14,11 @@ public class Tweet {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false, updatable = false)
     private User author;
     private String text;
-    private Date date;
     private int likes;
-    private boolean retweet;
-    private Tweet parent;
 
     public Long getId() {
         return id;
@@ -46,14 +44,6 @@ public class Tweet {
         this.text = text;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
     public int getLikes() {
         return likes;
     }
@@ -62,21 +52,21 @@ public class Tweet {
         this.likes = likes;
     }
 
-    public boolean isRetweet() {
-        return retweet;
-    }
-
-    public void setRetweet(boolean retweet) {
-        this.retweet = retweet;
-    }
-
-    public Tweet getParent() {
-        return parent;
-    }
-
-    public void setParent(Tweet parent) {
-        this.parent = parent;
-    }
+//    public boolean isRetweet() {
+//        return retweet;
+//    }
+//
+//    public void setRetweet(boolean retweet) {
+//        this.retweet = retweet;
+//    }
+//
+//    public Tweet getParent() {
+//        return parent;
+//    }
+//
+//    public void setParent(Tweet parent) {
+//        this.parent = parent;
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -99,10 +89,7 @@ public class Tweet {
                 "id=" + id +
                 ", author=" + author +
                 ", text='" + text + '\'' +
-                ", date=" + date +
                 ", likes=" + likes +
-                ", retweet=" + retweet +
-                ", parent=" + parent +
                 '}';
     }
 }

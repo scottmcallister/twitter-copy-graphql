@@ -1,0 +1,16 @@
+type User {
+    id: ID!
+    name: String!
+    handle: String!
+    email: String!
+    password: String
+}
+
+extend type Query {
+    findAllUsers: [User]!
+    countUsers: Long!
+}
+
+extend type Mutation {
+    newUser(name: String!, handle: String!, email: String!, password: String!) : User!
+}

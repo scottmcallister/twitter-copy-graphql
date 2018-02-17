@@ -1,60 +1,53 @@
 package com.example.graphqlservice.resolver;
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
-import com.example.graphqlservice.model.Author;
-import com.example.graphqlservice.model.Book;
-import com.example.graphqlservice.repository.AuthorRepository;
-import com.example.graphqlservice.repository.BookRepository;
+import com.example.graphqlservice.model.Tweet;
+import com.example.graphqlservice.model.User;
+import com.example.graphqlservice.repository.*;
 
 /**
  * Created by scottmcallister on 2018-02-13.
  */
 public class Mutation implements GraphQLMutationResolver {
-    private BookRepository bookRepository;
-    private AuthorRepository authorRepository;
+    private TweetRepository tweetRepository;
+    private UserRepository userRepository;
 
-    public Mutation(AuthorRepository authorRepository, BookRepository bookRepository) {
-        this.authorRepository = authorRepository;
-        this.bookRepository = bookRepository;
+    public Mutation(TweetRepository tweetRepository, UserRepository userRepository) {
+        this.tweetRepository = tweetRepository;
+        this.userRepository = userRepository;
     }
 
-    public Author newAuthor(String firstName, String lastName) {
-        Author author = new Author();
-        author.setFirstName(firstName);
-        author.setLastName(lastName);
+    public Tweet newTweet(Long authorId, String text) {
+        User author = userRepository.findOne(authorId);
+        Tweet tweet = new Tweet();
+        tweet.setAuthor(author);
+        tweet.setText(text);
+        tweet.setLikes(0);
+        tweetRepository.save(tweet);
 
-        authorRepository.save(author);
-
-        return author;
+        return tweet;
     }
 
-    public Book newBook(String title, String isbn, Integer pageCount, Long authorId) {
-        Book book = new Book();
-        book.setAuthor(new Author(authorId));
-        book.setTitle(title);
-        book.setIsbn(isbn);
-        book.setPageCount(pageCount);
-
-        bookRepository.save(book);
-
-        return book;
-    }
-
-    public boolean deleteBook(Long id) {
-        bookRepository.delete(id);
+    public boolean deleteTweet(Long id) {
+        tweetRepository.delete(id);
         return true;
     }
 
-    public Book updateBookPageCount(Integer pageCount, Long id) throws Exception {
-        Book book = bookRepository.findOne(id);
-        if(book == null) {
-            throw new Exception("book with id " + id + " was not found");
-        }
+    public Tweet updateTweetLikes(Integer likes, Long id) {
+        Tweet tweet = tweetRepository.findOne(id);
+        tweet.setLikes(likes);
+        tweetRepository.save(tweet);
+        return tweet;
+    }
 
-        book.setPageCount(pageCount);
-
-        bookRepository.save(book);
-
-        return book;
+    public User newUser(String name, String handle,
+                        String email, String password) {
+        User user = new User();
+        user.setName(name);
+        user.setHandle(handle);
+        user.setEmail(email);
+        user.setPassword(password);
+        userRepository.save(user);
+        return user;
     }
 }

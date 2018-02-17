@@ -1,28 +1,24 @@
 package com.example.graphqlservice.model;
 
+import graphql.schema.GraphQLInputType;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Arrays;
-import java.util.Date;
 
 /**
  * Created by scottmcallister on 2018-02-16.
  */
 @Entity
-public class User {
+public class User implements GraphQLInputType {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private Date birthday;
     private String handle;
     private String email;
     private String password;
-    private User[] followers;
-    private User[] following;
-    private Tweet[] tweets;
 
     public Long getId() {
         return id;
@@ -38,14 +34,6 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
     }
 
     public String getHandle() {
@@ -72,30 +60,6 @@ public class User {
         this.password = password;
     }
 
-    public User[] getFollowers() {
-        return followers;
-    }
-
-    public void setFollowers(User[] followers) {
-        this.followers = followers;
-    }
-
-    public User[] getFollowing() {
-        return following;
-    }
-
-    public void setFollowing(User[] following) {
-        this.following = following;
-    }
-
-    public Tweet[] getTweets() {
-        return tweets;
-    }
-
-    public void setTweets(Tweet[] tweets) {
-        this.tweets = tweets;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -116,13 +80,9 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", birthday=" + birthday +
                 ", handle='" + handle + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", followers=" + Arrays.toString(followers) +
-                ", following=" + Arrays.toString(following) +
-                ", tweets=" + Arrays.toString(tweets) +
+                ", password='" + password +
                 '}';
     }
 }

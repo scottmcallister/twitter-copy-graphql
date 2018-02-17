@@ -1,0 +1,19 @@
+scalar GraphQLDateType
+
+type Tweet {
+    id: ID!
+    author: User!
+    text: String!
+    likes: Int
+}
+
+type Query {
+    findAllTweets: [Tweet]!
+    countTweets: Long!
+}
+
+type Mutation {
+    newTweet(authorId: Long, text: String) : Tweet!
+    deleteTweet(id: Long!) : Boolean
+    updateTweetLikes(likes: Int, id: Long) : Tweet!
+}

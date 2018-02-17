@@ -1,12 +1,11 @@
 package com.example.graphqlservice;
 
-import com.example.graphqlservice.model.Author;
-import com.example.graphqlservice.model.Book;
-import com.example.graphqlservice.repository.AuthorRepository;
-import com.example.graphqlservice.repository.BookRepository;
-import com.example.graphqlservice.resolver.BookResolver;
+import com.example.graphqlservice.model.Tweet;
+import com.example.graphqlservice.model.User;
+import com.example.graphqlservice.repository.*;
 import com.example.graphqlservice.resolver.Mutation;
 import com.example.graphqlservice.resolver.Query;
+import com.example.graphqlservice.resolver.TweetResolver;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,31 +19,29 @@ public class DemoApplication {
 	}
 
 	@Bean
-	public BookResolver authorResolver(AuthorRepository authorRepository) {
-		return new BookResolver(authorRepository);
+	public TweetResolver userResolver(UserRepository userRepository) {
+		return new TweetResolver(userRepository);
 	}
 
 	@Bean
-	public Query query(AuthorRepository authorRepository, BookRepository bookRepository) {
-		return new Query(authorRepository, bookRepository);
+	public Query query(TweetRepository tweetRepository, UserRepository userRepository) {
+		return new Query(tweetRepository, userRepository);
 	}
 
 	@Bean
-	public Mutation mutation(AuthorRepository authorRepository, BookRepository bookRepository) {
-		return new Mutation(authorRepository, bookRepository);
+	public Mutation mutation(TweetRepository tweetRepository, UserRepository userRepository) {
+		return new Mutation(tweetRepository, userRepository);
 	}
 
-	@Bean public CommandLineRunner demo(AuthorRepository authorRepository, BookRepository bookRepository) {
+	@Bean public CommandLineRunner demo(TweetRepository tweetRepository, UserRepository userRepository) {
 		return (args) -> {
-			Author author = new Author("Herbert", "Schildt");
-			authorRepository.save(author);
-			bookRepository.save(
-					new Book("Java: A Beginner's Guide, Sixth Edition",
-							"0071809252",
-							728,
-							author
-					)
-			);
+			User user = new User();
+			user.setName("Donald J. Trump");
+			user.setHandle("realDonaldTrump");
+			userRepository.save(user);
+			Tweet tweet = new Tweet();
+			tweet.setAuthor(user);
+			tweet.setText("We are prepared to launch fire and fury on North Korea!");
 		};
 	}
 
