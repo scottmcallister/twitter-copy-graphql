@@ -52,22 +52,6 @@ public class Tweet {
         this.likes = likes;
     }
 
-//    public boolean isRetweet() {
-//        return retweet;
-//    }
-//
-//    public void setRetweet(boolean retweet) {
-//        this.retweet = retweet;
-//    }
-//
-//    public Tweet getParent() {
-//        return parent;
-//    }
-//
-//    public void setParent(Tweet parent) {
-//        this.parent = parent;
-//    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

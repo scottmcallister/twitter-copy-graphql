@@ -42,6 +42,15 @@ public class DemoApplication {
 			Tweet tweet = new Tweet();
 			tweet.setAuthor(user);
 			tweet.setText("We are prepared to launch fire and fury on North Korea!");
+			tweetRepository.save(tweet);
+			Tweet tweet2 = new Tweet();
+			tweet2.setAuthor(user);
+			tweet2.setText("Despite the negative press covfefe");
+			Tweet tweet3 = new Tweet();
+			tweetRepository.save(tweet2);
+			tweet3.setAuthor(user);
+			tweet3.setText("Crooked Hillary is the worst (and biggest) loser of all time");
+			tweetRepository.save(tweet3);
 		};
 	}
 
