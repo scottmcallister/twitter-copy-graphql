@@ -10,6 +10,7 @@ type Tweet {
 type Query {
     findAllTweets: [Tweet]!
     countTweets: Long!
+    findByAuthorId: [Tweet]!
 }
 
 type Mutation {

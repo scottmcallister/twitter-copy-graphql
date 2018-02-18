@@ -1,9 +1,6 @@
 package com.example.graphqlservice.model;
 
-import com.example.graphqlservice.scalar.GraphQLDateType;
-
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * Created by scottmcallister on 2018-02-16.

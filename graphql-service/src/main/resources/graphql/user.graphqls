@@ -9,6 +9,7 @@ type User {
 extend type Query {
     findAllUsers: [User]!
     countUsers: Long!
+    findUserByHandle(handle: String): User
 }
 
 extend type Mutation {

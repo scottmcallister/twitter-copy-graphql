@@ -2,10 +2,7 @@ package com.example.graphqlservice.model;
 
 import graphql.schema.GraphQLInputType;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by scottmcallister on 2018-02-16.
@@ -16,6 +13,7 @@ public class User implements GraphQLInputType {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
+    @Column(unique = true)
     private String handle;
     private String email;
     private String password;

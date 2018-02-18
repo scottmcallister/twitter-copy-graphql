@@ -25,4 +25,8 @@ public class Query implements GraphQLQueryResolver {
     public long countUsers() { return userRepository.count(); }
 
     public long countTweets() { return tweetRepository.count(); }
+
+    public User findUserByHandle(String handle) {
+        return userRepository.findByHandle(handle);
+    }
 }
