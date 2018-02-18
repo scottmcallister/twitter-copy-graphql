@@ -8,9 +8,8 @@ type Tweet {
 }
 
 type Query {
-    findAllTweets: [Tweet]!
+    allTweets: [Tweet]!
     countTweets: Long!
-    findByAuthorId: [Tweet]!
 }
 
 type Mutation {

@@ -6,6 +6,8 @@ import com.example.graphqlservice.model.User;
 import com.example.graphqlservice.repository.TweetRepository;
 import com.example.graphqlservice.repository.UserRepository;
 
+import java.util.ArrayList;
+
 /**
  * Created by scottmcallister on 2018-02-13.
  */
@@ -18,15 +20,11 @@ public class Query implements GraphQLQueryResolver {
         this.userRepository = userRepository;
     }
 
-    public Iterable<User> findAllUsers() { return userRepository.findAll(); }
+    public Iterable<User> allUsers() { return userRepository.findAll(); }
 
-    public Iterable<Tweet> findAllTweets() { return tweetRepository.findAll(); }
+    public Iterable<Tweet> allTweets() { return tweetRepository.findAll(); }
 
     public long countUsers() { return userRepository.count(); }
 
     public long countTweets() { return tweetRepository.count(); }
-
-    public User findUserByHandle(String handle) {
-        return userRepository.findByHandle(handle);
-    }
 }
