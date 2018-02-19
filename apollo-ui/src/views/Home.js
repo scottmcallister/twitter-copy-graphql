@@ -8,6 +8,7 @@ const ListOfTweets = gql`
         allTweets {
             text
             author {
+                name
                 handle
             }
         }
@@ -19,7 +20,9 @@ class Home extends Component {
         const tweets = data.loading ? [] : data.allTweets;
         return (<div>
             <h1>Home</h1>
-            { data.loading ? 'Loading...' : <TweetList tweets={tweets} /> }
+            <div className="container">
+                { data.loading ? 'Loading...' : <TweetList tweets={tweets} /> }
+            </div>
         </div>)
     }
 }
