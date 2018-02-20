@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import TweetList from '../components/TweetList';
+import Nav from '../components/Nav';
 
 const ListOfTweets = gql`
     query ListOfTweets {
@@ -15,12 +16,18 @@ const ListOfTweets = gql`
         }
     }
 `
+const loggedIn = true;
+const user = {
+    name: 'Donald J. Trump',
+    handle: 'realDonaldTrump'
+}
+
 class Home extends Component {
     render() {
         const { data } = this.props;
         const tweets = data.loading ? [] : data.allTweets;
         return (<div>
-            <h1>Home</h1>
+            <Nav loggedIn={loggedIn} user={user} />
             <div className="container">
                 { data.loading ? 'Loading...' : <TweetList tweets={tweets} /> }
             </div>

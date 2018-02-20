@@ -5,7 +5,7 @@ import './styles/TweetList.css'
 
 const TweetList = props => {
     const listOfTweets = props.tweets.map(tweet => (
-        <div className="row">
+        <div className="row tweet">
             <div className="col-2">
                 <img className="rounded-circle" style={{ width: 50, height: 50 }} src={`/images/${tweet.author.handle}.jpg`} />
             </div>
