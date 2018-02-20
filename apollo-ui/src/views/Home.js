@@ -10,6 +10,7 @@ const ListOfTweets = gql`
             author {
                 name
                 handle
+                id
             }
         }
     }
