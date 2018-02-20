@@ -1,9 +1,12 @@
+.tweet-list {
+    background: #fff;
+}
+
 .handle {
     color: #aaa;
 }
 
 .tweet {
-    background: #fff;
     border: 1px solid #e6ecf0;
     border-top: none;
     padding: 15px;

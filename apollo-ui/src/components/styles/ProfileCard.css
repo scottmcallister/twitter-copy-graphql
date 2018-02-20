@@ -1,0 +1,40 @@
+.profile-card {
+    margin-bottom: 30px;
+}
+
+.blue-bg {
+    background: #1DA1F2;
+    height: 95px;
+}
+.info-container {
+    background: #fff;
+}
+.info {
+    overflow: scroll;
+    padding-left: 90px;
+    text-align: left;
+}
+.blue-bg img {
+    position: relative;
+    top: 60px;
+    float: left;
+    height: 70px;
+    width: 70px;
+    box-shadow: 0 0 0 2px #FFFFFF;
+    z-index: 2;
+    margin-left: 10px;
+}
+.info .name {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: left;
+}
+.info .handle {
+    color: #aaa;
+}
+
+@media (max-width: 991px) {
+    .profile-card {
+        padding: 0px !important;
+    }
+}
