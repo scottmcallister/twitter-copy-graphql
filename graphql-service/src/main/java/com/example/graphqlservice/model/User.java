@@ -15,6 +15,9 @@ public class User implements GraphQLInputType {
     private String name;
     @Column(unique = true)
     private String handle;
+    private String bio;
+    private String location;
+    private String website;
     private String email;
     private String password;
 
@@ -40,6 +43,30 @@ public class User implements GraphQLInputType {
 
     public void setHandle(String handle) {
         this.handle = handle;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
     }
 
     public String getEmail() {
@@ -79,8 +106,11 @@ public class User implements GraphQLInputType {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", handle='" + handle + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password +
+                ", bio='" + bio + '\'' +
+                ", location='" + location + '\'' +
+                ", website='" + website + '\'' +
+                ", email=" + email + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

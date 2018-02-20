@@ -24,6 +24,10 @@ public class Query implements GraphQLQueryResolver {
 
     public Iterable<Tweet> allTweets() { return tweetRepository.findAll(); }
 
+    public User user(Long id) { return userRepository.findOne(id); }
+
+    public Tweet tweet(Long id) { return tweetRepository.findOne(id); }
+
     public long countUsers() { return userRepository.count(); }
 
     public long countTweets() { return tweetRepository.count(); }

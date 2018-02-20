@@ -2,11 +2,15 @@ type User {
     id: ID!
     name: String!
     handle: String!
-    email: String!
+    bio: String
+    location: String
+    website: String
+    email: String
     password: String
 }
 
 extend type Query {
+    user(id: ID!): User
     allUsers: [User]!
     countUsers: Long!
 }

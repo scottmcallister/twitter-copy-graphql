@@ -38,6 +38,9 @@ public class DemoApplication {
 			User user = new User();
 			user.setName("Donald J. Trump");
 			user.setHandle("realDonaldTrump");
+			user.setBio("45th President of the United States of America\uD83C\uDDFA\uD83C\uDDF8");
+			user.setLocation("Washington, DC");
+			user.setWebsite("Instagram.com/realDonaldTrump");
 			userRepository.save(user);
 			Tweet tweet = new Tweet();
 			tweet.setAuthor(user);
