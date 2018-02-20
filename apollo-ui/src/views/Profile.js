@@ -21,7 +21,7 @@ class Profile extends React.Component {
         if (id === undefined) {
             id = 0;
         }
-        let UserProfile = gql`
+        UserProfile = gql`
             query UserProfile {
                 user(id: ${id}) {
                     name
@@ -42,7 +42,7 @@ class Profile extends React.Component {
                 <h1>Profile</h1>
                 { data.loading ? 'Loading...' :
                     ([<div>
-                        <img className="rounded-circle" style={{ width: 100, height: 100 }} src={`/images/${profile.handle}.jpg`} />
+                        <img alt={profile.handle} className="rounded-circle" style={{ width: 100, height: 100 }} src={`/images/${profile.handle}.jpg`} />
                     </div>,
                     <h3>{profile.name}</h3>,
                     <span style={{color: '#aaa'}}>@{profile.handle}</span>,

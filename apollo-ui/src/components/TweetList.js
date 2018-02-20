@@ -5,9 +5,9 @@ import './styles/TweetList.css'
 
 const TweetList = props => {
     const listOfTweets = props.tweets.map(tweet => (
-        <div className="row tweet">
+        <div className="row tweet" key={tweet.id}>
             <div className="col-2">
-                <img className="rounded-circle" style={{ width: 50, height: 50 }} src={`/images/${tweet.author.handle}.jpg`} />
+                <img alt={tweet.author.handle} className="rounded-circle" style={{ width: 50, height: 50 }} src={`/images/${tweet.author.handle}.jpg`} />
             </div>
             <div className="col-10 text-left">
                 <Link to={`/user/${tweet.author.id}`}><span className="font-weight-bold">{tweet.author.name} </span></Link>

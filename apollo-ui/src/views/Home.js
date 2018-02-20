@@ -8,6 +8,7 @@ import ProfileCard from '../components/ProfileCard';
 const ListOfTweets = gql`
     query ListOfTweets {
         allTweets {
+            id
             text
             author {
                 name

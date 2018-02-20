@@ -7,7 +7,7 @@ const ProfileCard = props => {
     return (
         <div className="profile-card col-lg-4">
             <div className="blue-bg">
-                <img className="rounded-circle" src={`/images/${user.handle}.jpg`}/>
+                <img alt={user.handle} className="rounded-circle" src={`/images/${user.handle}.jpg`}/>
             </div>
             <div className="info-container">
                 <div className="info">

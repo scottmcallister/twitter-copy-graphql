@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom'
 import './styles/Nav.css'
 
 const Nav = props => {
-    const { user, loggedIn } = props;
+    const { user } = props;
     return (
         <nav className="navbar">
             <div className="container">
                 <Link to="/">Home</Link>
                 <div className="my-2">
-                    <img className="rounded-circle" src={`/images/${user.handle}.jpg`}/>
+                    <img alt={user.handle} className="rounded-circle" src={`/images/${user.handle}.jpg`}/>
                 </div>
             </div>
         </nav>
@@ -18,8 +18,7 @@ const Nav = props => {
 }
 
 Nav.propTypes = {
-    user: PropTypes.object,
-    loggedIn: PropTypes.bool
+    user: PropTypes.object
 }
 
 export default Nav;
