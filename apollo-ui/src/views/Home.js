@@ -1,31 +1,10 @@
 import React, { Component } from 'react'
 import { graphql, compose } from 'react-apollo';
-import gql from 'graphql-tag';
 import TweetList from '../components/TweetList';
 import Nav from '../components/Nav';
+import './styles/Home.css';
 import ProfileCard from '../components/ProfileCard';
-
-const ListOfTweets = gql`
-    query {
-        allTweets {
-            id
-            text
-            author {
-                name
-                handle
-                id
-            }
-        }
-    }
-`;
-const getLoggedInUser = gql`
-    query {
-        loggedInUser @client {
-            name
-            handle
-        }
-    }
-`;
+import { ListOfTweets, getLoggedInUser } from '../graphql/queries'
 
 class Home extends Component {
     render() {
@@ -34,7 +13,7 @@ class Home extends Component {
         console.log(this.props);
         return (<div>
             <Nav user={loggedInUser} />
-            <div className="container">
+            <div className="container content">
                 { data.loading ? 'Loading...' : 
                     <div className="row">
                         <ProfileCard user={loggedInUser} /><TweetList tweets={tweets} />

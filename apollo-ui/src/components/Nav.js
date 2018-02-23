@@ -6,7 +6,7 @@ import './styles/Nav.css'
 const Nav = props => {
     const { user } = props;
     return (
-        <nav className="navbar">
+        <nav className="navbar fixed-top">
             <div className="container">
                 <Link to="/">Home</Link>
                 <div className="my-2">

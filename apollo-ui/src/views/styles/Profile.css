@@ -1,0 +1,16 @@
+.backdrop {
+    padding-top: 80px;
+    height: 440px;
+    background: #1DA1F2;
+}
+
+.backdrop img {
+    position: relative;
+    top: 230px;
+    float: left;
+    height: 150px;
+    width: 150px;
+    box-shadow: 0 0 0 5px #FFFFFF;
+    z-index: 2;
+    margin-left: 10px;
+}
