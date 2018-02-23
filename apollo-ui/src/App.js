@@ -18,7 +18,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/tweet" component={Tweet} />
-            <Route path="/user/:id" component={Profile} />
+            <Route path="/user/:userId" component={Profile} />
             <Route path="*" exact component={NotFound} />
           </Switch>
         </BrowserRouter>

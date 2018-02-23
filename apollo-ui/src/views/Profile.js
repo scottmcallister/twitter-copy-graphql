@@ -1,8 +1,21 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
-let UserProfile = gql`
+const UserProfile = gql`
+    query UserProfile($userId: ID!) {
+        user(id: $userId) {
+            name
+            handle
+            bio
+            website
+            location
+        }
+    }
+`;
+
+const DummyUserProfile = gql`
     query UserProfile {
         user(id: 1) {
             name
@@ -15,24 +28,6 @@ let UserProfile = gql`
 `;
 
 class Profile extends React.Component {
-
-    componentDidMount() {
-        let { id } = this.props.match.params;
-        if (id === undefined) {
-            id = 0;
-        }
-        UserProfile = gql`
-            query UserProfile {
-                user(id: ${id}) {
-                    name
-                    handle
-                    bio
-                    website
-                    location
-                }
-            }
-        `
-    }
 
     render() {
         const { data } = this.props;
@@ -55,4 +50,10 @@ class Profile extends React.Component {
     }
 }
 
-export default graphql(UserProfile)(Profile);
+export default graphql(UserProfile, {
+    options: (ownProps) => ({ 
+        variables: { 
+            userId: ownProps.match.params.userId
+        }
+    })
+})(withRouter(Profile));
