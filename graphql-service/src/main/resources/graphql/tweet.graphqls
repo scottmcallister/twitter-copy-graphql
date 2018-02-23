@@ -11,6 +11,7 @@ type Query {
     tweet(id: ID!): Tweet
     allTweets: [Tweet]!
     countTweets: Long!
+    tweetsByAuthor(authorId: Long): [Tweet]
 }
 
 type Mutation {
