@@ -22,10 +22,10 @@ class Profile extends React.Component {
                             </div>,
                             <nav className="navbar">
                                 <div className="container">
-                                    <div className="col-3">
+                                    <div className="col-lg-3 col-md-4 col-sm-5">
 
                                     </div>
-                                    <ul className="nav col-9">
+                                    <ul className="nav col-lg-9 col-md-8 col-sm-7 col-4 offset-8 offset-sm-0 float-right float-sm-left float-md-left float-lg-left">
                                         <li className="nav-item">
                                             <a className="nav-link">Tweets</a>
                                         </li>
