@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { graphql } from 'react-apollo';
+import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
 import TweetList from '../components/TweetList';
 import Nav from '../components/Nav';
 import ProfileCard from '../components/ProfileCard';
 
 const ListOfTweets = gql`
-    query ListOfTweets {
+    query {
         allTweets {
             id
             text
@@ -17,27 +17,39 @@ const ListOfTweets = gql`
             }
         }
     }
-`
-const loggedIn = true;
-const user = {
-    name: 'Donald J. Trump',
-    handle: 'realDonaldTrump'
-}
+`;
+const getLoggedInUser = gql`
+    query {
+        loggedInUser @client {
+            name
+            handle
+        }
+    }
+`;
 
 class Home extends Component {
     render() {
-        const { data } = this.props;
+        const { data, loggedInUser } = this.props;
         const tweets = data.loading ? [] : data.allTweets;
+        console.log(this.props);
         return (<div>
-            <Nav loggedIn={loggedIn} user={user} />
+            <Nav user={loggedInUser} />
             <div className="container">
                 { data.loading ? 'Loading...' : 
                     <div className="row">
-                        <ProfileCard user={user} /><TweetList tweets={tweets} />
+                        <ProfileCard user={loggedInUser} /><TweetList tweets={tweets} />
                     </div>
                 }
             </div>
         </div>)
     }
 }
-export default graphql(ListOfTweets)(Home);
+export default compose(
+    graphql(getLoggedInUser, {
+        props: ({ data: { loggedInUser, loading } }) => ({
+            loggedInUser,
+            loading
+        })
+    }),
+    graphql(ListOfTweets)
+)(Home);
