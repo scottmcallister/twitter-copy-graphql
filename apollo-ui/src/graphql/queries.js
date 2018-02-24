@@ -9,6 +9,15 @@ export const UserProfile = gql`
             website
             location
         }
+        tweetsByAuthor(authorId: $userId) {
+            id
+            text
+            author {
+                name
+                handle
+                id
+            }
+        }
     }
 `;
 export const ListOfTweets = gql`

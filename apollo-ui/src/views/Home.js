@@ -16,7 +16,10 @@ class Home extends Component {
             <div className="container content">
                 { data.loading ? 'Loading...' : 
                     <div className="row">
-                        <ProfileCard user={loggedInUser} /><TweetList tweets={tweets} />
+                        <ProfileCard user={loggedInUser} />
+                        <div className="col-lg-8">
+                            <TweetList tweets={tweets} />
+                        </div>
                     </div>
                 }
             </div>

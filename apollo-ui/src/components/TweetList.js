@@ -18,7 +18,7 @@ const TweetList = props => {
             </div>
         </div>
     ));
-    return (<div className="col-lg-8 tweet-list">{listOfTweets}</div>);
+    return (<div className="tweet-list">{listOfTweets}</div>);
 }
 
 TweetList.propTypes = {
