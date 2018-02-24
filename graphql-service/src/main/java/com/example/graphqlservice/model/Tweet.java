@@ -16,6 +16,7 @@ public class Tweet {
     private User author;
     private String text;
     private int likes;
+    private Long timestamp;
 
     public Long getId() {
         return id;
@@ -47,6 +48,14 @@ public class Tweet {
 
     public void setLikes(int likes) {
         this.likes = likes;
+    }
+
+    public Long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Long timestamp) {
+        this.timestamp = timestamp;
     }
 
     @Override

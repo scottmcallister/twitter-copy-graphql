@@ -5,6 +5,7 @@ type Tweet {
     author: User!
     text: String!
     likes: Int
+    timestamp: Long
 }
 
 type Query {
