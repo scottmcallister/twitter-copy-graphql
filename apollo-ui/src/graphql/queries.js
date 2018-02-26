@@ -12,6 +12,7 @@ export const UserProfile = gql`
         tweetsByAuthor(authorId: $userId) {
             id
             text
+            timestamp
             author {
                 name
                 handle
@@ -25,6 +26,7 @@ export const ListOfTweets = gql`
         allTweets {
             id
             text
+            timestamp
             author {
                 name
                 handle
