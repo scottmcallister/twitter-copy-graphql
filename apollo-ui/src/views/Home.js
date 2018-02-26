@@ -10,7 +10,6 @@ class Home extends Component {
     render() {
         const { data, loggedInUser } = this.props;
         const tweets = data.loading ? [] : data.allTweets;
-        console.log(this.props);
         return (<div>
             <Nav user={loggedInUser} />
             <div className="container content">

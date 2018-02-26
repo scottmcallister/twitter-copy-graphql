@@ -11,7 +11,6 @@ class Profile extends React.Component {
         const { data, loggedInUser } = this.props;
         const profile = data.loading ? [] : data.user;
         const tweets = data.loading ? [] : data.tweetsByAuthor;
-        console.log(tweets);
         return (
             <div>
                 <Nav user={loggedInUser} />
