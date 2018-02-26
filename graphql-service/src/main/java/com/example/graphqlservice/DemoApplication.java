@@ -12,7 +12,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -128,7 +127,7 @@ public class DemoApplication {
 		Tweet tweet8 = new Tweet();
 		tweet8.setAuthor(users.get("taylor"));
 		tweet8.setText("It's a daily struggle for me not to buy more cats.");
-		tweet5.setTimestamp(new SimpleDateFormat("MM/dd/yyyy HH:mm")
+		tweet8.setTimestamp(new SimpleDateFormat("MM/dd/yyyy HH:mm")
 				.parse("11/07/2015 10:55").getTime());
 		tweetRepository.save(tweet8);
 		Tweet tweet9 = new Tweet();
@@ -147,13 +146,13 @@ public class DemoApplication {
 		tweet11.setAuthor(users.get("kim"));
 		tweet11.setText("Kit Kat is my fav candy bar but its tastes different in other countries. " +
 				"Why would they change the filling in between the wafers?");
-		tweet5.setTimestamp(new SimpleDateFormat("MM/dd/yyyy HH:mm")
+		tweet11.setTimestamp(new SimpleDateFormat("MM/dd/yyyy HH:mm")
 				.parse("09/20/2017 18:41").getTime());
 		tweetRepository.save(tweet11);
 		Tweet tweet12 = new Tweet();
 		tweet12.setAuthor(users.get("obama"));
 		tweet12.setText("It's been the honor of my life to serve you. You made me a better leader and a better man.");
-		tweet4.setTimestamp(new SimpleDateFormat("MM/dd/yyyy HH:mm")
+		tweet12.setTimestamp(new SimpleDateFormat("MM/dd/yyyy HH:mm")
 				.parse("01/20/2017 18:09").getTime());
 		tweetRepository.save(tweet12);
 
