@@ -9,13 +9,12 @@ const getTime = timestamp => {
     const date = new Date(timestamp);
     const currentDate = new Date();
     const microsecondsDiff = Math.abs(currentDate.getTime() - timestamp);
-    console.log(microsecondsDiff);
     const hoursDiff = Math.floor(microsecondsDiff/(1000 * 60 * 60));
     if (hoursDiff < 1) {
         const minuteDiff = Math.floor(microsecondsDiff/(1000 * 60));
-        return minuteDiff === 0 ? `${Math.floor(microsecondsDiff/1000)} s` : `${minuteDiff} m`;
+        return minuteDiff === 0 ? ` ${Math.floor(microsecondsDiff/1000)} s` : ` ${minuteDiff} m`;
     } else if (hoursDiff < 24) {
-        return `${hoursDiff} h`;
+        return ` ${hoursDiff} h`;
     } else {
         const sameYear = date.getFullYear() === currentDate.getFullYear();
         const month = monthNames[date.getMonth()];

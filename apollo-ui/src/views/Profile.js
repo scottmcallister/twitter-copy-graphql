@@ -40,7 +40,7 @@ class Profile extends React.Component {
                                     </ul>
                                 </div>
                             </nav>,
-                            <div className="container">
+                            <div className="container" key={2}>
                                 <div className="row">
                                     <div className="col-lg-3 text-left" style={{ paddingTop: 40 }}>
                                         <h3>{profile.name}</h3>

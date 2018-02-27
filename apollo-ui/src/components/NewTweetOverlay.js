@@ -15,14 +15,18 @@ class NewTweetOverlay extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.toggleShow = this.toggleShow.bind(this);
+        this.setWrapperRef = this.setWrapperRef.bind(this);           
+        this.handleClickOutside = this.handleClickOutside.bind(this);
     }
 
     componentDidMount() {
-        this.props.onRef(this)
+        this.props.onRef(this);
+        document.addEventListener('mousedown', this.handleClickOutside);
     }
 
     componentWillUnmount() {
-        this.props.onRef(undefined)
+        this.props.onRef(undefined);
+        document.removeEventListener('mousedown', this.handleClickOutside);
     }
 
     handleChange(event) {
@@ -33,7 +37,6 @@ class NewTweetOverlay extends Component {
         event.preventDefault();
         const { loggedInUserId } = this.props;
         const { text } = this.state;
-        console.log('handle submit');
         this.props.mutate({
             variables: { 
                 text,
@@ -53,10 +56,20 @@ class NewTweetOverlay extends Component {
         this.setState({ show: !show });
     }
 
+    setWrapperRef(node) {
+        this.backdrop = node;
+    }
+
+    handleClickOutside(event) {
+        if (this.backdrop && this.backdrop === event.target) {
+            this.toggleShow();
+        }
+    }
+
     render() {
         const { show, error } = this.state;
         return show ?
-            (<div className="overlay-backdrop">
+            (<div className="overlay-backdrop" ref={this.setWrapperRef}>
                 <div className="tweet-modal card">
                     <h4 className="card-header tweet-modal-header text-center">Compose new Tweet</h4>
                     <div className="card-block tweet-modal-content">
@@ -64,7 +77,7 @@ class NewTweetOverlay extends Component {
                         <form id="tweet-modal-form" onSubmit={this.handleSubmit}>
                             <div className="col-10 offset-1">
                                 <textarea name="text" form="tweet-modal-form" onChange={this.handleChange} rows={3} cols={60}
-                                    placeholder="What's happening?" className="form-control tweet-input"></textarea>
+                                    placeholder="What's happening?" className="form-control tweet-input" required></textarea>
                             </div>
                             <div className="col-1 offset-9">
                                 <input className="tweet-button pull-right" type="submit" value="Tweet" />
