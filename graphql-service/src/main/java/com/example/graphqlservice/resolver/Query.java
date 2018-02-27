@@ -22,7 +22,7 @@ public class Query implements GraphQLQueryResolver {
 
     public Iterable<User> allUsers() { return userRepository.findAll(); }
 
-    public Iterable<Tweet> allTweets() { return tweetRepository.findAll(); }
+    public Iterable<Tweet> allTweets() { return tweetRepository.findAllByOrderByTimestampDesc(); }
 
     public User user(Long id) { return userRepository.findOne(id); }
 
@@ -33,6 +33,6 @@ public class Query implements GraphQLQueryResolver {
     public long countTweets() { return tweetRepository.count(); }
 
     public Iterable<Tweet> tweetsByAuthor(Long authorId) {
-        return tweetRepository.findByAuthorId(authorId);
+        return tweetRepository.findByAuthorIdOrderByTimestampDesc(authorId);
     }
 }

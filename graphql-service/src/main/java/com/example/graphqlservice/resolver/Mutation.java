@@ -5,6 +5,8 @@ import com.example.graphqlservice.model.Tweet;
 import com.example.graphqlservice.model.User;
 import com.example.graphqlservice.repository.*;
 
+import java.util.Date;
+
 /**
  * Created by scottmcallister on 2018-02-13.
  */
@@ -23,6 +25,7 @@ public class Mutation implements GraphQLMutationResolver {
         tweet.setAuthor(author);
         tweet.setText(text);
         tweet.setLikes(0);
+        tweet.setTimestamp(new Date().getTime());
         tweetRepository.save(tweet);
 
         return tweet;

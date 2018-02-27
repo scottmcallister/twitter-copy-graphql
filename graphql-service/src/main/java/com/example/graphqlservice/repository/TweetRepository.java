@@ -9,5 +9,6 @@ import java.util.List;
  * Created by scottmcallister on 2018-02-16.
  */
 public interface TweetRepository extends CrudRepository<Tweet, Long> {
-    List<Tweet> findByAuthorId(Long authorId);
+    List<Tweet> findByAuthorIdOrderByTimestampDesc(Long authorId);
+    List<Tweet> findAllByOrderByTimestampDesc();
 }

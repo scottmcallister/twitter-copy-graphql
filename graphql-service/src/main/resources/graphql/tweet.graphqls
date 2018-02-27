@@ -16,7 +16,7 @@ type Query {
 }
 
 type Mutation {
-    newTweet(authorId: Long, text: String) : Tweet!
-    deleteTweet(id: Long!) : Boolean
+    newTweet(authorId: ID!, text: String) : Tweet!
+    deleteTweet(id: ID!) : Boolean
     updateTweetLikes(likes: Int, id: Long) : Tweet!
 }
