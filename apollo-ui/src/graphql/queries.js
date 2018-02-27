@@ -38,6 +38,7 @@ export const ListOfTweets = gql`
 export const getLoggedInUser = gql`
     query {
         loggedInUser @client {
+            id
             name
             handle
         }

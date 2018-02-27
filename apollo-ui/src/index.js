@@ -20,6 +20,7 @@ const httpLink = new HttpLink({
 const defaultState = {
     loggedInUser: {
         __typename: 'User',
+        id: 1,
         name: "Donald J. Trump",
         handle: "realDonaldTrump"
     }

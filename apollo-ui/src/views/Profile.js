@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
 import { graphql, compose } from 'react-apollo';
-import { UserProfile, getLoggedInUser, TweetsByAuthor } from '../graphql/queries';
+import { UserProfile, getLoggedInUser } from '../graphql/queries';
 import './styles/Profile.css'
 import Nav from '../components/Nav';
 import TweetList from '../components/TweetList';

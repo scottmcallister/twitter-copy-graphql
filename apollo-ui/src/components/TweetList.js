@@ -17,7 +17,7 @@ const getTime = timestamp => {
     } else if (hoursDiff < 24) {
         return `${hoursDiff} h`;
     } else {
-        const sameYear = date.getFullYear() == currentDate.getFullYear();
+        const sameYear = date.getFullYear() === currentDate.getFullYear();
         const month = monthNames[date.getMonth()];
         return ` ${month} ${date.getDate()} ${sameYear ? '' : date.getFullYear()}`;
     }
