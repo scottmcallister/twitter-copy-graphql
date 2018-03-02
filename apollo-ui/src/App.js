@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import Home from './views/Home';
-import Tweet from './views/Tweet';
 import Profile from './views/Profile';
 import NotFound from './views/NotFound';
 import {
@@ -17,7 +16,6 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/tweet" component={Tweet} />
             <Route path="/user/:userId" component={Profile} />
             <Route path="*" exact component={NotFound} />
           </Switch>

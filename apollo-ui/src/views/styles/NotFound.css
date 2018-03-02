@@ -1,0 +1,20 @@
+.errorpage-bird {
+    width: 23px;
+    height: 19px;
+    float: left;
+}
+
+.errorpage-content {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background: #009DF6;
+}
+
+.errorpage-content h1 {
+    color: #fff;
+    margin-top: 100px;
+}
