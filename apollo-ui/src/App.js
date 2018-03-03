@@ -3,6 +3,7 @@ import './App.css';
 import Home from './views/Home';
 import Profile from './views/Profile';
 import NotFound from './views/NotFound';
+import Login from './views/Login';
 import {
   BrowserRouter,
   Switch,
@@ -16,6 +17,7 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/login" component={Login} />>
             <Route path="/user/:userId" component={Profile} />
             <Route path="*" exact component={NotFound} />
           </Switch>
