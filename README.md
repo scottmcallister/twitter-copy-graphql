@@ -1,18 +1,20 @@
-# graphql-demo
+# twitter-clone-graphql
 
- A simple Twitter clone using React/Apollo to connect to a GraphQL Spring Boot API.
+A simple Twitter clone using React/Apollo to connect to a GraphQL Spring Boot API. This app supports logging in with existing users, following/unfollowing other users, viewing tweets made by users you follow, creating new tweets, and liking tweets. 
+ 
+The purpose of this project is not to completely copy the functionality of Twitter. This project was created to explore how web applications built with Java and React can use GraphQL as an alternative to REST. 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
 Ensure you have the following installed on your machine: 
-    - Java 8
-    - Maven
-    - Node JS & NPM
-    - Yarn
+- Java 8
+- Maven
+- Node JS & NPM
+- Yarn
 
 ### Installing
 
@@ -35,6 +37,15 @@ $ yarn run start
 ```
 
 After both the UI and API are running, you should be able to see the app in your browser at [http://localhost:3000](http://localhost:3000).
+
+## Logging In
+
+To use this app, you can log in with any of the following user handles. The password for each user will be identical to the user's handle.
+
+- realDonaldTrump
+- BarackObama
+- taylorswift13
+- KimKardashian
 
 ## Built With
 
