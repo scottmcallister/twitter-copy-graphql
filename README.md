@@ -6,8 +6,9 @@ The purpose of this project is not to completely copy the functionality of Twitt
 
 ## Screenshots
 
+<p align="center">
 <img src="/screenshots/twitter-home.png" width="500px" height="350px" alt="Home Page" align="center"> <img src="/screenshots/twitter-new-tweet.png" width="500px" height="350px" alt="New Tweet" align="center"> <img src="/screenshots/twitter-profile.png" width="500px" height="350px" alt="Profile Page" align="center">
-
+</p>
 
 ## Getting Started
 
