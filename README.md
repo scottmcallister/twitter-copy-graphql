@@ -6,7 +6,7 @@ The purpose of this project is not to completely copy the functionality of Twitt
 
 ## Screenshots
 
-<img src="/screenshots/twitter-home.png" width="400px" height="330px" alt="Home Page" style="margin: auto;"> <img src="/screenshots/twitter-new-tweet.png" width="400px" height="330px" alt="New Tweet" style="margin: auto;"> <img src="/screenshots/twitter-profile.png" width="400px" height="330px" alt="Profile Page" style="margin: auto;">
+<img src="/screenshots/twitter-home.png" width="500px" height="350px" alt="Home Page" align="center"> <img src="/screenshots/twitter-new-tweet.png" width="500px" height="350px" alt="New Tweet" align="center"> <img src="/screenshots/twitter-profile.png" width="500px" height="350px" alt="Profile Page" align="center">
 
 
 ## Getting Started
