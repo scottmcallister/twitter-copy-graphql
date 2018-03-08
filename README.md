@@ -31,7 +31,7 @@ Ensure you have the following installed on your machine:
 The GraphQL API can be started like any other Maven project
 
 ```
-$ cd /path/to/graphqldemo/graphql-service
+$ cd /path/to/twitter-copy-graphql/server
 $ mvn clean install
 $ java -jar /target/graphql-service-0.0.1-SNAPSHOT.jar
 ```
@@ -41,7 +41,7 @@ Alternatively, you could compile the graphql-service project and run the `DemoAp
 Once you have the API running, you should switch to another termial window before booting up the UI. To set up the React UI, you'll need to install your dependencies and run the `start` command through Yarn.
 
 ```
-$ cd /path/to/graphqldemo/apollo-ui
+$ cd /path/to/twitter-copy-graphql/ui
 $ yarn install
 $ yarn run start
 ```
