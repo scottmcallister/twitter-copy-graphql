@@ -10,7 +10,7 @@ The purpose of this project is not to completely copy the functionality of Twitt
 <img src="/screenshots/twitter-home.png" width="500px" height="350px" alt="Home Page" align="center"> 
 </p> 
 
-</p align="center">
+<p align="center">
 <img src="/screenshots/twitter-profile.png" width="500px" height="350px" alt="Profile Page" align="center">
 </p>
 
